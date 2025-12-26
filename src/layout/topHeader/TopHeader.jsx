@@ -1,9 +1,9 @@
-import React, { useRef } from 'react'
-import { Menu } from 'primereact/menu'
-import { Avatar } from 'primereact/avatar'
+import React, { useRef } from "react";
+import { Menu } from "primereact/menu";
+import { Avatar } from "primereact/avatar";
 
 const TopHeader = () => {
-  const menu = useRef(null)
+  const menu = useRef(null);
 
   const userMenuItems = [
     {
@@ -16,17 +16,16 @@ const TopHeader = () => {
     },
     { separator: true },
     {
-      label: 'Logout',
-      icon: 'pi pi-sign-out',
+      label: "Logout",
+      icon: "pi pi-sign-out",
       command: () => {
-        console.log('logout clicked')
+        console.log("logout clicked");
       },
     },
-  ]
+  ];
 
   return (
     <header className="h-14 bg-white border-b border-gray-200 flex items-center px-6 shadow-sm">
-
       <h1 className="text-lg font-semibold text-gray-800">
         The Mighty Babor Project
       </h1>
@@ -45,9 +44,8 @@ const TopHeader = () => {
         {/* Dropdown Menu */}
         <Menu model={userMenuItems} popup ref={menu} />
       </div>
-
     </header>
-  )
-}
+  );
+};
 
-export default TopHeader
+export default TopHeader;

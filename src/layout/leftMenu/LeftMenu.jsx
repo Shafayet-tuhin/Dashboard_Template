@@ -27,8 +27,11 @@ const LeftMenu = () => {
         </div>
 
         {!collapsed && (
-          <button onClick={() => setCollapsed(true)} className="text-lg">
-            ◀
+          <button
+            onClick={() => setCollapsed(true)}
+            className="text-lg px-2 py-1 rounded-lg hover:bg-slate-700 transition-colors duration-200"
+          >
+            <span className="pi pi-angle-double-left"></span>
           </button>
         )}
       </div>
@@ -39,7 +42,11 @@ const LeftMenu = () => {
             <div
               onClick={() => {
                 if (menu.hasSubmenu) {
-                  setOpenMenu(openMenu === index ? null : index);
+                  if (openMenu === index) {
+                    setOpenMenu(null);
+                  } else {
+                    setOpenMenu(index);
+                  }
                 } else if (menu.path) {
                   navigate(menu.path);
                 }
@@ -55,7 +62,13 @@ const LeftMenu = () => {
               {!collapsed && (
                 <>
                   <span className="flex-1">{menu.menuName}</span>
-                  {menu.hasSubmenu && <span>▾</span>}
+                  {menu.hasSubmenu && (
+                    <span
+                      className={`pi transition-transform duration-200 cursor-pointer ${
+                        openMenu === index ? "pi-angle-up" : "pi-angle-down"
+                      }`}
+                    ></span>
+                  )}
                 </>
               )}
             </div>
