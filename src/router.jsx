@@ -22,9 +22,9 @@ export const router = createBrowserRouter([
         element: <Settings />,
       },
       {
-        path: '*',
+        path: "*",
         element: <div>Page Not Found</div>,
-      }
+      },
     ],
   },
 ]);
